@@ -1,0 +1,34 @@
+[
+  {
+    "string_list_data": [
+      {
+        "value": "ami_proche",
+        "timestamp": 1609459200
+      }
+    ]
+  },
+  {
+    "string_list_data": [
+      {
+        "value": "collegue_travail",
+        "timestamp": 1609459200
+      }
+    ]
+  },
+  {
+    "string_list_data": [
+      {
+        "value": "fan_inconnu_1",
+        "timestamp": 1609459200
+      }
+    ]
+  },
+  {
+    "string_list_data": [
+      {
+        "value": "fan_inconnu_2",
+        "timestamp": 1609459200
+      }
+    ]
+  }
+]

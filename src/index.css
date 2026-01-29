@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Custom styles for the Tinder-like cards */
+.swipe {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+/* Swipe indicators */
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10;
+}
+
+.swipe-indicator.left {
+  left: 20px;
+  background-color: #ff4458;
+  color: white;
+}
+
+.swipe-indicator.right {
+  right: 20px;
+  background-color: #4cd964;
+  color: white;
+}
+
+/* Animation for cards leaving */
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-150%) rotate(-30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  to {
+    transform: translateX(150%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* Gradient overlay for profile image */
+.profile-image-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+}
+
+/* Button hover effects */
+.action-btn {
+  transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+/* File drop zone */
+.drop-zone {
+  border: 3px dashed #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.drop-zone:hover,
+.drop-zone.dragging {
+  border-color: #e1306c;
+  background-color: #fce7f3;
+}
+
+/* Stats animation */
+.stat-number {
+  animation: countUp 0.5s ease-out;
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Progress bar */
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* Card stack effect */
+.card-stack .swipe:nth-child(2) {
+  transform: scale(0.95) translateY(10px);
+}
+
+.card-stack .swipe:nth-child(3) {
+  transform: scale(0.9) translateY(20px);
+}

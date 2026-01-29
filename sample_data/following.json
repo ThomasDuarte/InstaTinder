@@ -1,0 +1,68 @@
+{
+  "relationships_following": [
+    {
+      "string_list_data": [
+        {
+          "value": "nike",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "adidas",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "apple",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "google",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "microsoft",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "ami_proche",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "collegue_travail",
+          "timestamp": 1609459200
+        }
+      ]
+    },
+    {
+      "string_list_data": [
+        {
+          "value": "influenceur_random",
+          "timestamp": 1609459200
+        }
+      ]
+    }
+  ]
+}

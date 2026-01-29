@@ -10,6 +10,7 @@ function FileUpload({ onFilesLoaded }) {
     following: false,
     followers: false,
   });
+  const [showInstructions, setShowInstructions] = useState(false);
 
   const followingInputRef = useRef(null);
   const followersInputRef = useRef(null);
@@ -154,10 +155,31 @@ function FileUpload({ onFilesLoaded }) {
         </div>
 
         {/* Instructions */}
-        <div className="bg-blue-50 rounded-xl p-4 mb-6">
-          <h4 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+        <div className="bg-blue-50 rounded-xl mb-6 overflow-hidden">
+          <button
+            onClick={() => setShowInstructions(!showInstructions)}
+            className="w-full p-4 flex items-center justify-between hover:bg-blue-100 transition-colors"
+          >
+            <h4 className="font-semibold text-blue-800 flex items-center gap-2">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              Comment obtenir vos données ?
+            </h4>
             <svg
-              className="w-5 h-5"
+              className={`w-5 h-5 text-blue-800 transition-transform ${
+                showInstructions ? "rotate-180" : ""
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -166,22 +188,46 @@ function FileUpload({ onFilesLoaded }) {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                d="M19 9l-7 7-7-7"
               />
             </svg>
-            Comment obtenir vos données ?
-          </h4>
-          <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
-            <li>Allez sur Instagram → Paramètres → Compte</li>
-            <li>Cliquez sur "Télécharger vos données"</li>
-            <li>Sélectionnez le format JSON</li>
-            <li>
-              Récupérez les fichiers{" "}
-              <code className="bg-blue-100 px-1 rounded">following.json</code>{" "}
-              et{" "}
-              <code className="bg-blue-100 px-1 rounded">followers.json</code>
-            </li>
-          </ol>
+          </button>
+          {showInstructions && (
+            <div className="px-4 pb-4">
+              <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
+                <li>
+                  Allez sur Instagram → Paramètres → Espace comptes → Vos
+                  informations et autorisations → Exporter vos informations
+                </li>
+                <li>Cliquez sur "Créer une exportation"</li>
+                <li>
+                  Sélectionnez le compte pour lequel vous souhaitez exporter les
+                  données
+                </li>
+                <li>Sélectionnez "Exporter sur mon appareil"</li>
+                <li>
+                  Dans "Personnaliser les informations", cochez seulement la
+                  case "Followers et suivi(e)s"
+                </li>
+                <li>Ensuite dans "Période", sélectionnez "Depuis le début"</li>
+                <li>Dans "Format", sélectionnez "JSON"</li>
+                <li>
+                  Puis enfin, cliquez sur "Commencer l'exportation (l'opération
+                  peut prendre plusieurs minutes)"
+                </li>
+                <li>
+                  Une fois l'exportation terminée, récupérez les fichiers{" "}
+                  <code className="bg-blue-100 px-1 rounded">
+                    following.json
+                  </code>{" "}
+                  et{" "}
+                  <code className="bg-blue-100 px-1 rounded">
+                    followers.json
+                  </code>
+                </li>
+              </ol>
+            </div>
+          )}
         </div>
 
         {/* Drop zones */}
